@@ -2,7 +2,7 @@ import { supabase } from '../lib/supabase'
 
 export default async function Home() {
   // This tests if Supabase is connected
-  const { data, error } = await supabase.from('test_table').select('*')
+  const { data, error } = await supabase.from('cakes').select('*')
 
   return (
     <main style={{ padding: '2rem', fontFamily: 'sans-serif', textAlign: 'center' }}>
