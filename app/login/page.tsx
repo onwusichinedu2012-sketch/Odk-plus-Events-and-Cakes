@@ -45,6 +45,23 @@ export default function LoginPage() {
           Log In
         </button>
       </form>
+      
+      {/* Add this new section below */}
+      <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+        <button 
+          onClick={async () => {
+            const { error } = await supabase.auth.resetPasswordForEmail(email, {
+              redirectTo: 'https://odk-plus-events-and-cakes-eta.vercel.app/login',
+            })
+            if (error) alert(error.message)
+            else alert('Check your email for a reset link!')
+          }}
+          style={{ background: 'none', border: 'none', color: '#0070f3', cursor: 'pointer', textDecoration: 'underline' }}
+        >
+          Forgot Password?
+        </button>
+      </div>
+    </div>
     </div>
   )
   }
